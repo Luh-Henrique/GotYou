@@ -34,16 +34,6 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
         index:_indiceAtual,
       ),
-
-      /* body: PageView(
-        children: _telas,
-        onPageChanged: (index){
-          setState(() {
-            _indiceAtual = index;
-          });
-        }
-        ,)
-      , */
       bottomNavigationBar:new Theme(
     data: Theme.of(context).copyWith(
     // sets the background color of the `BottomNavigationBar`

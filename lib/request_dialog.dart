@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_gotyou/request.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:location/location.dart';
 
 class RequestDialog extends StatefulWidget {
   final Request request;
+
+
 
   // Construtor para receber uma tarefa quando precisar edita-la
   RequestDialog({this.request});
@@ -17,6 +22,40 @@ class _RequestDialogState extends State<RequestDialog> {
   final _itemController = TextEditingController();
 
   Request _currentRequest = Request();
+
+
+  Position currentPosition;
+  Placemark currentAddress;
+
+ void GetCurrentLocation() {
+   Geolocator
+       .getCurrentPosition(forceAndroidLocationManager: true)
+       .then((Position position) {
+     setState(() {
+       currentPosition = position;
+       GetAddressFromLatLng();
+     });
+   }).catchError((e) {
+     print(e);
+   });
+ }
+
+  void GetAddressFromLatLng() async {
+    try {
+      List<Placemark> placemarks = await placemarkFromCoordinates(
+          currentPosition.latitude,
+          currentPosition.longitude
+      );
+
+      Placemark place = placemarks[0];
+
+      setState(() {
+        currentAddress = place;
+      });
+    } catch (e) {
+      print(e);
+    }
+  }
 
   @override
   void initState() {
@@ -75,6 +114,15 @@ class _RequestDialogState extends State<RequestDialog> {
             _currentRequest.description = _descriptionController.text;
             _currentRequest.item = _itemController.text;
             _currentRequest.done = false;
+
+            if (currentPosition == null) {
+              GetCurrentLocation();
+            }
+
+            if (currentAddress == null) {
+              GetAddressFromLatLng();
+            }
+            _currentRequest.location = "${currentAddress.locality}, ${currentAddress.postalCode}, ${currentAddress.country}";
 
             Navigator.of(context).pop(_currentRequest);
           },

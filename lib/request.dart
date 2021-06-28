@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:location/location.dart';
 
 class Item
 {
@@ -13,6 +14,7 @@ class Request {
   String description;
   String item;
   bool done;
+  String location;
 
   Request({
     this.id,
@@ -20,6 +22,7 @@ class Request {
     this.description,
     this.item,
     this.done,
+    this.location
   });
 
   factory Request.fromMap(Map<String, dynamic> json) => new Request(
@@ -28,6 +31,7 @@ class Request {
     description: json["description"],
     item: json["item"],
     done: json["done"],
+    location: json["location"],
   );
 
   Map<String, dynamic> toMap() => {
@@ -36,5 +40,6 @@ class Request {
     "description": description,
     "item": item,
     "done": done,
+    "location": location,
   };
 }

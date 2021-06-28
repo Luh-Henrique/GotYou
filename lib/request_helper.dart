@@ -31,7 +31,8 @@ class RequestHelper {
           "requester TEXT, "
           "description TEXT, "
           "items TEXT, "
-          "done INTEGER)");
+          "done INTEGER, "
+          "location TEXT)");
     });
   }
 
@@ -44,7 +45,7 @@ class RequestHelper {
   Future<Request> getById(int id) async {
     Database database = await db;
     List<Map> maps = await database.query('request',
-        columns: ['id', 'requester', 'description', 'items', 'done'],
+        columns: ['id', 'requester', 'description', 'items', 'done', 'location'],
         where: 'id = ?',
         whereArgs: [id]);
 
@@ -75,7 +76,6 @@ class RequestHelper {
 
   Future<int> deleteAll() async {
     Database database = await db;
-    return await database.rawDelete("DELETE * from requesto");
+    return await database.rawDelete("DELETE * from request");
   }
-
 }
