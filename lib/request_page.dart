@@ -54,8 +54,8 @@ class _RequestPageState extends State<RequestPage> {
     final request = _requestList[index];
     return CheckboxListTile(
       value: request.done,
-      title: Text(request.requester),
-      subtitle: Text(request.location),
+      title: Text("ID: " + request.id.toString() + " Item: " + request.item),
+      subtitle: Text(request.requester + " from " + request.location),
       onChanged: (bool isChecked) {
         setState(() {
           request.done = isChecked;

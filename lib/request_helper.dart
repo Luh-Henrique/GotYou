@@ -22,15 +22,15 @@ class RequestHelper {
 
   Future<Database> initDb() async {
     final databasePath = await getDatabasesPath();
-    final path = join(databasePath, "GotYou.db");
+    final path = join(databasePath, "GotYouRequest.db");
 
     return openDatabase(path, version: 1,
     onCreate: (Database db, int newerVersion) async {
       await db.execute("CREATE TABLE request("
-          "id INTEGER PRIMARY KEY, "
+          "id INTEGER PRIMARY KEY AUTOINCREMENT, "
           "requester TEXT, "
           "description TEXT, "
-          "items TEXT, "
+          "item TEXT, "
           "done INTEGER, "
           "location TEXT)");
     });
@@ -45,7 +45,7 @@ class RequestHelper {
   Future<Request> getById(int id) async {
     Database database = await db;
     List<Map> maps = await database.query('request',
-        columns: ['id', 'requester', 'description', 'items', 'done', 'location'],
+        columns: ['id', 'requester', 'description', 'item', 'done', 'location'],
         where: 'id = ?',
         whereArgs: [id]);
 

@@ -1,11 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.luizhenrique.flutter_app_gotyou">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACESS_COARSE_LOCATION"/>
 
    <application
         android:label="flutter_app_gotyou"
+        android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_gotyou/request.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:location/location.dart';
 
 class RequestDialog extends StatefulWidget {
   final Request request;
@@ -122,7 +121,7 @@ class _RequestDialogState extends State<RequestDialog> {
             if (currentAddress == null) {
               GetAddressFromLatLng();
             }
-            _currentRequest.location = "${currentAddress.locality}, ${currentAddress.postalCode}, ${currentAddress.country}";
+            _currentRequest.location = "${currentAddress.locality} - ${currentAddress.postalCode} - ${currentAddress.country}";
 
             Navigator.of(context).pop(_currentRequest);
           },

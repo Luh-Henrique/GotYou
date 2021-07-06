@@ -1,13 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
 
-class Item
-{
- int amount;
- String name;
- double price;
-}
-
 class Request {
   int id;
   String requester;
