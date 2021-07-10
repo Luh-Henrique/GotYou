@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_gotyou/request_page.dart';
 import 'package:flutter_app_gotyou/config.dart';
 import 'package:flutter_app_gotyou/profile.dart';
-import 'package:flutter_app_gotyou/login.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -13,12 +11,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int _indiceAtual = 0;
-  var _telas = [
-    Profile(),
-    Config(),
-    Profile(),
-    RequestPage()
-  ];
 
 
   @override

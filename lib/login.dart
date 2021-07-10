@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_gotyou/user.dart';
-import 'package:flutter_app_gotyou/home.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'login_presenter.dart';
 
