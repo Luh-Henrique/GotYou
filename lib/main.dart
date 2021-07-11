@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app_gotyou/config.dart';
 import 'package:flutter_app_gotyou/home.dart';
+import 'package:flutter_app_gotyou/notices.dart';
 import 'package:flutter_app_gotyou/profile.dart';
 import 'package:flutter_app_gotyou/request_page.dart';
 import 'package:flutter_app_gotyou/login.dart';
@@ -19,13 +20,15 @@ final routes = {
   "/Profile": (BuildContext context) => Profile(),
   "/Config": (BuildContext context) => Config(),
   "/RequestPage": (BuildContext context) => RequestPage(),
-  "/About": (BuildContext context) => HomeScreen()
+  "/About": (BuildContext context) => HomeScreen(),
+  "/Notices": (BuildContext context) => Notices()
 };
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(primaryColor: Colors.orange),
       routes: routes,
     );

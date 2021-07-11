@@ -13,6 +13,7 @@ class AboutState extends State<About> {
       home: Scaffold(
         appBar: AppBar(
           title: Text('Sobre os devs'),
+          backgroundColor: Colors.orange,
         ),
         body: Center(
           child: Text('Se esta aqui quer saber da gente (｡>﹏<｡)'),

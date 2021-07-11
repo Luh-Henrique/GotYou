@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_gotyou/notices.dart';
 import 'package:flutter_app_gotyou/request_page.dart';
 import 'package:flutter_app_gotyou/config.dart';
 import 'package:flutter_app_gotyou/profile.dart';
@@ -19,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(title: Text('GOT YOU - DELIVERY'),),
       body: IndexedStack(
         children: <Widget>[
-          Profile(),
+          Notices(),
           Config(),
           Profile(),
           RequestPage()
